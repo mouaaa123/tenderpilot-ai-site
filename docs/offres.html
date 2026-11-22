@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Appels d’offres de chauffage, ventilation et climatisation publiés en Moselle ou indiquant ce département comme lieu d’exécution.">
+  <title>Marchés CVC en Moselle · TenderPilot AI</title>
+  <style>
+    :root{color-scheme:light;--ink:#122239;--muted:#445a69;--teal:#006454;--line:#d8e3e4}
+    *{box-sizing:border-box}body{margin:0;background:#f4f7f7;color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55}
+    .wrap{width:min(100% - 40px,980px);margin:auto}header{background:#0d2732;color:#fff;padding:23px 0 35px}
+    .brand{color:#a6f4df;font-size:.84rem;font-weight:750;letter-spacing:.09em;text-decoration:none}
+    h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.1;letter-spacing:-.045em;margin:28px 0 12px}
+    header p{margin:0;max-width:65ch;color:#def0ec}main{padding-block:24px}
+    .tools{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+    #status{margin:0;font-weight:650}button,.action{font:inherit;font-weight:650;border-radius:8px;padding:9px 15px}
+    button{color:var(--teal);background:white;border:1px solid #93b4ab;cursor:pointer}button:disabled{opacity:.6;cursor:wait}
+    #results{display:grid;gap:14px}article{background:#fff;border:1px solid var(--line);border-radius:13px;padding:clamp(18px,4vw,29px)}
+    .reference{font-size:.78rem;color:var(--teal);font-weight:750;letter-spacing:.04em}h2{font-size:clamp(1.15rem,3vw,1.55rem);line-height:1.3;margin:8px 0}
+    article p{margin:4px 0;color:var(--muted)}.bottom{display:flex;justify-content:space-between;align-items:end;gap:12px;border-top:1px solid var(--line);padding-top:15px;margin-top:16px}
+    .bottom span{display:block;font-size:.8rem;color:var(--muted)}time{font-weight:650}.action{display:inline-block;color:white;background:var(--teal);text-decoration:none}
+    footer{font-size:.9rem;color:var(--muted);padding-bottom:35px}footer a{color:var(--teal)}a:focus-visible,button:focus-visible{outline:3px solid #bc7710;outline-offset:3px}
+    @media(max-width:560px){.tools,.bottom{align-items:flex-start;flex-direction:column}.tools{gap:10px}}
+  </style>
+  <script type="module" src="veille-boamp.mjs"></script>
+</head>
+<body>
+  <header><div class="wrap"><a class="brand" href="index.html">TENDERPILOT AI</a>
+    <h1>Marchés CVC en Moselle</h1>
+    <p>Chauffage, ventilation et climatisation. À chaque ouverture, la liste recherche les appels d’offres avec une date limite de réponse encore à venir.</p>
+  </div></header>
+  <main class="wrap">
+    <div class="tools"><p id="status" role="status">Consultation du BOAMP en cours…</p><button id="refresh" type="button">Actualiser</button></div>
+    <noscript><p>Activez JavaScript pour afficher la veille ou utilisez le lien vers le BOAMP ci-dessous.</p></noscript>
+    <div id="results"></div>
+    <template id="offer-template"><article>
+      <div class="reference"></div><h2></h2><p class="buyer"></p><p class="place"></p>
+      <div class="bottom"><div><span>Date limite · heure de Paris</span><time></time></div>
+      <a class="action" rel="noreferrer" target="_blank">Lire l’avis officiel ↗</a></div>
+    </article></template>
+  </main>
+  <footer class="wrap"><p>Source : BOAMP / DILA. Vérifiez les lots, le lieu des prestations et les derniers rectificatifs sur l’avis officiel avant de répondre.</p>
+    <a href="https://www.boamp.fr/pages/recherche/" target="_blank" rel="noreferrer">Recherche officielle BOAMP ↗</a> · <a href="rapports_reels/archive_cvc_2026-11-22.html">Rapport archivé du 22 novembre 2026</a>
+  </footer>
+</body>
+</html>

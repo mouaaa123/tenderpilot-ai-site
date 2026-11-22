@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 
 DOCS = Path(__file__).parent / "docs"
-EXPECTED = [DOCS/'index.html', DOCS/'profil-client.html', DOCS/'rapport-demo.html', DOCS/'rapports_reels'/'rapport_reel_22_11_2026.html']
+EXPECTED = [DOCS/'index.html', DOCS/'offres.html', DOCS/'rapports_reels'/'archive_cvc_2026-11-22.html', DOCS/'profil-client.html', DOCS/'rapport-demo.html', DOCS/'rapports_reels'/'rapport_reel_22_11_2026.html']
 
 class Links(HTMLParser):
     def __init__(self):
@@ -27,5 +27,9 @@ for path in EXPECTED:
         assert target.is_file(), f"Broken relative link in {path}: {href}"
     if path.name=='rapport-demo.html':
         assert 'FICTIV' in content.upper(), 'Demo not disclosed as fictional'
+live_page = (DOCS/'offres.html').read_text(encoding='utf-8')
+assert 'src="veille-boamp.mjs"' in live_page and (DOCS/'veille-boamp.mjs').is_file()
+legacy_page = (DOCS/'rapports_reels'/'rapport_reel_22_11_2026.html').read_text(encoding='utf-8')
+assert 'content="0; url=../offres.html"' in legacy_page
 assert not (DOCS/'prospection').exists()
 print('Site OK — HTML, liens relatifs, mentions démo, aucun CRM public')

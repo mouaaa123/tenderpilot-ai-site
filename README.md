@@ -11,7 +11,7 @@ Site de démonstration statique pour PME électricité / CVC, **non ouvert à la
 
 Le site est entièrement statique : aucun paiement, aucun formulaire distant, aucun suivi publicitaire.
 L'espace « rapport-démo » contient des exemples **fictifs** explicitement indiqués.
-Le rapport daté du 22 novembre 2026 est un **instantané éditorial**, pas un flux temps réel : les échéances et rectificatifs doivent être vérifiés sur les sources officielles.
+La page publique `docs/offres.html` consulte l’API ouverte du BOAMP à chaque visite pour le profil CVC en Moselle. Elle sélectionne les avis à échéance future et vérifie les avis liés. Une panne de la source est signalée à l’écran. L’ancien lien partagé redirige vers la veille et le rapport éditorial reste consultable dans les archives.
 
 **Ne pas ajouter à ce dépôt** : CRM, fichiers de prospection, adresses e-mail de prospects, clefs SMTP, données client, fichiers des rapports confidentiels ou toute automatisation de diffusion de données clients.
 
@@ -20,7 +20,8 @@ Le rapport daté du 22 novembre 2026 est un **instantané éditorial**, pas un f
 - `docs/index.html` : page d'accueil
 - `docs/rapport-demo.html` : interface fictive
 - `docs/profil-client.html` : configurateur local, aucun upload
-- `docs/rapports_reels/` : rapport éditorial daté (public)
+- `docs/offres.html` et `docs/veille-boamp.mjs` : veille publique CVC en Moselle
+- `docs/rapports_reels/` : archive éditoriale et redirection des anciens liens
 - `.github/workflows/site-check.yml` : vérification statique du site avant publication
 
 ## Informations juridiques

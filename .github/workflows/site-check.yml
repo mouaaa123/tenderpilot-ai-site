@@ -14,3 +14,4 @@ jobs:
         with:
           python-version: '3.12'
       - run: python check_site.py
+      - run: node --test tests/veille-boamp.test.mjs
